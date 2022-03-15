@@ -1,0 +1,13 @@
+export const CELL = '#game div',
+  CLICKED = 'clicked-cell',
+  INGAME = 'in-game-cell',
+  INACTIVE = 'pointer-none',
+  ANIM = 'game-over-anim',
+  WIN = 'winner',
+  LOSS = 'loser',
+  DRAW = 'draw',
+  X = '❌',
+  O = '⭕',
+  INIT = '❔',
+  WIN_NUMBER = 3,
+  NAME = 'TICTACTOE';

@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Poppins:wght@400;600;800&display=swap');
+
+:root {
+  --bg-color: #7e685a;
+  --primary-color: #c2cad0;
+  --loser-color: #e7717d;
+  --winner-color: #afd275;
+  --draw-color: #a7a7d7;
+  --text-color: #443b3b;
+  --cell-size: 25vmin;
+}
+
+body,
+html {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 16px;
+  user-select: none;
+  font-family: 'Poppins', sans-serif;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*
+==============
+Game UI Style
+==============
+
+*/
+
+#tic-tac-toe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.game-title {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  background-color: var(--primary-color);
+}
+
+.content-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.count-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 0;
+  box-sizing: border-box;
+}
+
+.win-count {
+  background-color: var(--draw-color);
+  display: grid;
+  place-items: center;
+  width: 70px;
+  vertical-align: middle;
+}
+
+#game {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 0.5rem;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+}
+
+#game div {
+  list-style: none;
+  background-color: var(--primary-color);
+  text-align: center;
+  line-height: var(--cell-size);
+  height: var(--cell-size);
+  font-size: calc(var(--cell-size) * 0.7);
+  width: var(--cell-size);
+  transition: 0.2s ease-in;
+}
+
+.controls,
+.count-container {
+  background-color: var(--primary-color);
+  width: 100%;
+  max-width: 360px;
+  font-size: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.controls {
+  padding: 0.5rem 0;
+}
+
+.game-container {
+  flex-grow: 1;
+}
+
+.borders,
+#game div {
+  box-shadow: 0px 0px 5px black;
+  border-radius: calc(var(--cell-size) * 0.08);
+  box-sizing: border-box;
+}
+
+.scores-container,
+.controls-container {
+  min-height: 150px;
+}
+
+.controls-container {
+  margin-bottom: 1rem;
+}
+
+.controls:hover {
+  opacity: 0.7;
+}
+
+#reset,
+#continue,
+#scores > div {
+  display: none;
+}
+
+#reset {
+  background-color: var(--loser-color);
+}
+
+#connect {
+  background-color: var(--winner-color);
+}
+
+@media only screen and (min-width: 768px) {
+  :root {
+    --cell-size: 6.5rem;
+  }
+
+  .game-title {
+    font-size: 5rem;
+  }
+  .content-row {
+    flex-direction: row;
+  }
+
+  .scores-container,
+  .controls-container {
+    min-height: 80px;
+  }
+
+  .count-container:nth-child(2) {
+    flex-direction: row-reverse;
+  }
+
+  .game-container {
+    flex-grow: 2;
+  }
+
+  .borders {
+    border-radius: calc(var(--cell-size) * 0.05);
+  }
+}
+
+/* 
+===================================================================
+these are temporary plug and play classes used during the game play
+===================================================================
+*/
+
+.in-game-cell:hover {
+  transform: scale(1.05);
+  opacity: 0.5;
+}
+
+.clicked-cell {
+  opacity: 1;
+}
+
+.pointer-none {
+  pointer-events: none;
+}
+
+.in-game-cell {
+  opacity: 0.4;
+  cursor: pointer;
+  animation: spin 0.3s 1 ease-out;
+}
+
+.winner {
+  background-color: var(--winner-color) !important;
+}
+
+.loser {
+  background-color: var(--loser-color) !important;
+}
+
+.draw {
+  background-color: var(--draw-color) !important;
+}
+
+.game-over-anim {
+  animation: spin 0.4s 1 ease-in alternate-reverse;
+}
+
+/* 
+==========
+Animations 
+==========
+*/
+
+@keyframes heart-beat {
+  0% {
+    transform: scale(0.96);
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.5);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}

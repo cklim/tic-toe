@@ -27,7 +27,7 @@ npm start
 
 # 2- Scalability improvements:
 
-- Anything to do with jQuery and UI manipulation is in the UI directory, managed by 3 files `BoardUI`, `ControlUI` and `ScoreUI` classes
+- Anything to do with jQuery and UI manipulation is in the UI directory, managed by 3 classes `BoardUI`, `ControlUI` and `ScoreUI`
 - The game play flow of offline mode is fully managed by `Game` class
 - The game play flow of the online mode managed by `OnlineGame` class which inherits from `Game`
 - the optimized Winning algorithm is in under Utils directory in `CheckWinner.js`
